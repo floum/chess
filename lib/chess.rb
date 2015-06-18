@@ -1,5 +1,4 @@
-require "chess/version"
-
-module Chess
-  # Your code goes here...
-end
+require 'chess/version'
+require 'chess/game'
+require 'chess/board'
+require 'chess/square'
