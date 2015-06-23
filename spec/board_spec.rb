@@ -18,7 +18,10 @@ describe Board do
       @board = Board.new
       King.new(@board, 'e1', :white)
       King.new(@board, 'e8', :black)
-      @board.to_play = :white
+      @board.to_move = :white
+    end
+    it "to_json is {'e1':'K', 'e8':'k'}" do
+      expect(@board.to_json).to eq({ 'e1' => 'K', 'e8' => 'k' }.to_json)
     end
     describe 'e1' do
       it 'square color is white' do
@@ -28,7 +31,7 @@ describe Board do
         expect(@board['e1'].color).to eq :white
       end
     end
-    describe "moving the white king to e2" do
+    describe 'moving the white king to e2' do
       it 'is legal' do
         expect(@board['e1'].legal?('e2')).to be true
       end
@@ -41,7 +44,12 @@ describe Board do
         expect(@board['e1']).not_to be_occupied
       end
     end
-    describe "moving the black king to e7" do
+    describe 'moving the white king to d1' do
+      it 'is legal' do
+        expect(@board['e1'].legal?('d1')).to be true
+      end
+    end
+    describe 'moving the black king to e7' do
       it 'is not legal' do
         expect(@board['e8'].legal?('e7')).to be false
       end

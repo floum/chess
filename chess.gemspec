@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.3'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.1'
   spec.add_development_dependency 'guard-rspec', '~> 4.5'
+  spec.add_development_dependency 'guard-rubocop', '~> 1.2'
 end

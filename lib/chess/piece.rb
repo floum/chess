@@ -5,6 +5,13 @@ module Chess
       super(board, square)
       @color = color
       @occupied = true
+      board.pieces[square] = self
+    end
+
+    def to(square)
+      @board.pieces[@square] = Square.new(@board, @square)
+      @square = square
+      @board.pieces[@square] = self
     end
   end
 end
