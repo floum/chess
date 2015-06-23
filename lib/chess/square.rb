@@ -1,24 +1,15 @@
 module Chess
-  # the chessboard square class
+  # the square class
   class Square
-    def initialize(coordinates)
-      @column, @row = coordinates.split('')
+    def initialize(board, square)
+      @square = square
+      @board = board
     end
-
-    def white?
-      (@column.ord + @row.ord).odd?
+    def square_color
+      @square.each_char.map(&:ord).reduce(:+).even? ? :white : :black
     end
-
-    def black?
-      !white?
-    end
-
-    def occupy(piece)
-      @piece = piece
-    end
-
     def occupied?
-      @piece
+      @occupied
     end
   end
 end
