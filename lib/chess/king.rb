@@ -7,11 +7,12 @@ module Chess
     end
 
     def legal?(square)
-      to_move? && square.adjacent?(@square)
+      to_move? && controls?(square) &&
+        opponent_pieces.none? { |piece| piece.controls?(square) }
     end
 
-    def controls
-      @board[@square].adjacents
+    def controls?(square)
+      square.adjacent?(@square)
     end
 
     def to_s
