@@ -1,17 +1,28 @@
 module Chess
   # the piece class
-  class Piece < Square
-    def initialize(board, square, color)
-      super(board, square)
+  class Piece
+    def opponent
+      @color == :white ? :black : :white
+    end
+
+    def to_move?
+      board.to_move == @color
+    end
+
+    def board
+      @square.board
+    end
+
+    def initialize(square, color)
+      square.piece = self
+      @square = square
       @color = color
-      @occupied = true
-      board.pieces[square] = self
     end
 
     def to(square)
-      @board.pieces[@square] = Square.new(@board, @square)
-      @square = square
-      @board.pieces[@square] = self
+      @square.piece = nil
+      @square = board[square]
+      board[square].piece = self
     end
   end
 end

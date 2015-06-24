@@ -2,16 +2,16 @@ module Chess
   # the king class
   class King < Piece
     attr_reader :color
-    def initialize(board, square, color)
-      super(board, square, color)
-    end
-
-    def to_move?
-      @board.to_move == @color
+    def initialize(square, color)
+      super(square, color)
     end
 
     def legal?(square)
-      to_move? && adjacent?(@board[square])
+      to_move? && square.adjacent?(@square)
+    end
+
+    def controls
+      @board[@square].adjacents
     end
 
     def to_s
