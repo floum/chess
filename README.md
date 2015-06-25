@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-  ** WARNING : **This is still in development, it cannot be used to play chess this far.
+  **WARNING :**This is still in development, it cannot be used to play chess this far.
 
 ## Contributing
 
