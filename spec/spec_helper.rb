@@ -1,7 +1,12 @@
 require 'rspec/collection_matchers'
 
-require 'simplecov'
-SimpleCov.start
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
+else
+  require 'simplecov'
+  SimpleCov.start
+end
 
 require 'chess'
 
