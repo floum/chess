@@ -27,10 +27,10 @@ module Chess
       @color = color
     end
 
-    def to(square)
+    def move_to(coordinates)
       @square.piece = nil
-      @square = square
-      square.piece = self
+      @square = board[coordinates]
+      @square.piece = self
     end
   end
 end

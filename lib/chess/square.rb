@@ -17,11 +17,7 @@ module Chess
     end
 
     def color
-      [@column, @row].reduce(:+).even? ? :white : :black
-    end
-
-    def legal?(coordinates)
-      @piece ? @piece.legal?(@board[coordinates]) : false
+      [@column, @row].reduce(:+).odd? ? :white : :black
     end
 
     def occupied?
@@ -44,10 +40,6 @@ module Chess
       different?(other) &&
         [vertical_distance(other), horizontal_distance(other)]
           .none? { |distance| distance > 1 }
-    end
-
-    def move_to(coordinates)
-      @piece.to(@board[coordinates]) if @piece
     end
 
     def to_s

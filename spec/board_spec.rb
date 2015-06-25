@@ -19,8 +19,8 @@ describe Board do
       expect(@board.to_json).to eq({ :e1 => 'K', 'e8' => 'k' }.to_json)
     end
     describe :e1 do
-      it 'color is white' do
-        expect(@board[:e1].color).to eq :white
+      it 'color is black' do
+        expect(@board[:e1].color).to eq :black
       end
       it 'piece color is white' do
         expect(@board[:e1].piece_color).to eq :white
@@ -28,17 +28,17 @@ describe Board do
     end
     describe 'moving the white king to d1' do
       it 'is legal' do
-        expect(@board[:e1].legal?(:d1)).to be true
+        expect(@board[:e1].piece.legal_move?(:d1)).to be true
       end
     end
     describe 'moving the white king to d3' do
       it 'is not legal' do
-        expect(@board[:e1].legal?(:d3)).to be false
+        expect(@board[:e1].piece.legal_move?(:d3)).to be false
       end
     end
     describe 'moving the black king to e7' do
       it 'is not legal' do
-        expect(@board[:e8].legal?(:e7)).to be false
+        expect(@board[:e8].piece.legal_move?(:e7)).to be false
       end
     end
   end

@@ -6,9 +6,9 @@ module Chess
       super(square, color)
     end
 
-    def legal?(square)
-      to_move? && controls?(square) &&
-        opponent_pieces.none? { |piece| piece.controls?(square) }
+    def legal_move?(coordinates)
+      to_move? && controls?(board[coordinates]) &&
+        opponent_pieces.none? { |piece| piece.controls?(board[coordinates]) }
     end
 
     def controls?(square)

@@ -10,19 +10,19 @@ module Chess
     end
 
     def initialize
-      @squares = []
+      @squares = {}
       Board.square_coordinates.each do |coordinates|
-        @squares << Square.new(self, coordinates)
+        @squares[coordinates] = Square.new(self, coordinates)
       end
       @to_move = :white
     end
 
     def [](coordinates)
-      @squares.find { |square| square.coordinates == coordinates }
+      @squares[coordinates]
     end
 
     def pieces
-      @squares.select(&:occupied?).map(&:piece)
+      @squares.values.select(&:occupied?).map(&:piece)
     end
 
     def white_pieces

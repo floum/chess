@@ -12,20 +12,20 @@ describe King do
     end
     describe 'moving to e2' do
       it 'is legal' do
-        expect(@board[:e1].legal?(:e2)).to be true
+        expect(@king.legal_move?(:e2)).to be true
       end
       it 'occupies the e2 square' do
-        @board[:e1].move_to(:e2)
+        @king.move_to(:e2)
         expect(@board[:e2]).to be_occupied
       end
       it 'clears the e1 square' do
-        @board[:e1].move_to(:e2)
+        @king.move_to(:e2)
         expect(@board[:e1]).not_to be_occupied
       end
     end
     describe 'moving to d3' do
       it 'is not legal' do
-        expect(@board[:e1].legal?(:d3)).to be false
+        expect(@king.legal_move?(:d3)).to be false
       end
     end
     context 'with an opposing king on e3' do
@@ -37,7 +37,7 @@ describe King do
       end
       describe 'moving to e2' do
         it 'is not legal' do
-          expect(@board[:e1].legal?(:e2)).to be false
+          expect(@king.legal_move?(:e2)).to be false
         end
       end
     end
