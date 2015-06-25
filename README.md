@@ -1,5 +1,7 @@
 # Chess
 
+[![Code Climate](https://codeclimate.com/github/floum/chess/badges/gpa.svg)](https://codeclimate.com/github/floum/chess)
+[![Test Coverage](https://codeclimate.com/github/floum/chess/badges/coverage.svg)](https://codeclimate.com/github/floum/chess/coverage)
 [![Build Status](https://travis-ci.org/floum/chess.svg?branch=master)](https://travis-ci.org/floum/chess)
 
 Chess in Ruby
