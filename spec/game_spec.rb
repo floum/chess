@@ -9,5 +9,8 @@ describe Game do
     it 'has no moves' do
       expect(@game).to have(0).moves
     end
+    it 'has two sides' do
+      expect(@game).to have(2).sides
+    end
   end
 end

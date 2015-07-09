@@ -8,5 +8,9 @@ module Chess
     def moves
       @moves ||= []
     end
+
+    def sides
+      [:white, :black]
+    end
   end
 end

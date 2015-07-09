@@ -26,20 +26,5 @@ describe Board do
         expect(@board[:e1].piece_color).to eq :white
       end
     end
-    describe 'moving the white king to d1' do
-      it 'is legal' do
-        expect(@board[:e1].piece.legal_move?(:d1)).to be true
-      end
-    end
-    describe 'moving the white king to d3' do
-      it 'is not legal' do
-        expect(@board[:e1].piece.legal_move?(:d3)).to be false
-      end
-    end
-    describe 'moving the black king to e7' do
-      it 'is not legal' do
-        expect(@board[:e8].piece.legal_move?(:e7)).to be false
-      end
-    end
   end
 end

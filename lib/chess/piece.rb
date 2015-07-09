@@ -1,9 +1,7 @@
 module Chess
   # the piece class
   class Piece
-    def to_move?
-      board.to_move == @color
-    end
+    attr_reader :color
 
     def white?
       @color == :white
@@ -17,6 +15,10 @@ module Chess
       board.pieces.select { |piece| piece.color != @color }
     end
 
+    def between?(square, other_square)
+      true
+    end
+
     def board
       @square.board
     end
@@ -25,12 +27,6 @@ module Chess
       square.piece = self
       @square = square
       @color = color
-    end
-
-    def move_to(coordinates)
-      @square.piece = nil
-      @square = board[coordinates]
-      @square.piece = self
     end
   end
 end

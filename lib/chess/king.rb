@@ -6,11 +6,6 @@ module Chess
       super(square, color)
     end
 
-    def legal_move?(coordinates)
-      to_move? && controls?(board[coordinates]) &&
-        opponent_pieces.none? { |piece| piece.controls?(board[coordinates]) }
-    end
-
     def controls?(square)
       square.adjacent?(@square)
     end
