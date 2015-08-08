@@ -16,7 +16,7 @@ module Chess
     end
 
     def between?(square, other_square)
-      true
+      @square.between?(square, other_square)
     end
 
     def board
