@@ -10,7 +10,6 @@ module Chess
       @board = board
       @coordinates = coordinates
       @column, @row = coordinates.to_s.split('').map(&:ord)
-      @board[coordinates] = self
     end
 
     def between?(square, other_square)

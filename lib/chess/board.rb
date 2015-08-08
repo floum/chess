@@ -21,10 +21,6 @@ module Chess
       @squares[coordinates]
     end
 
-    def []=(coordinates, square)
-      @squares[coordinates] = square
-    end
-
     def pieces
       @squares.values.select(&:occupied?).map(&:piece)
     end

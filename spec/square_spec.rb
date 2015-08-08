@@ -2,7 +2,7 @@ describe Square do
   context 'e5' do
     before :each do
       @board = Board.new
-      @e5 = Square.new(@board, :e5)
+      @e5 = @board[:e5]
     end
     describe 'is between' do
       it 'b5 and g5' do

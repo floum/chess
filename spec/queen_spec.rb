@@ -17,12 +17,16 @@ describe Queen do
       expect(@queen.controls?(@board[:f6])).not_to be true
     end
   end
-  context 'on a board with two pieces' do
-    it 'does not jump above other pieces' do
-      @board = Board.new
-      @queen = Queen.new(@board[:e4], :white)
-      @piece = Piece.new(@board[:e6], :white)
-      expect(@queen.controls?(@board[:e7])).not_to be true
-    end
+  it 'does not jump above other pieces' do
+    @board = Board.new
+    @queen = Queen.new(@board[:e4], :white)
+    @piece = Piece.new(@board[:e6], :white)
+    expect(@queen.controls?(@board[:e7])).not_to be true
+  end
+  it 'can capture other pieces' do
+    @board = Board.new
+    @queen = Queen.new(@board[:e4], :white)
+    @piece = Piece.new(@board[:e6], :black)
+    expect(@queen.controls?(@board[:e6])).to be true
   end
 end
