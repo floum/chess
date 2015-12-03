@@ -1,16 +1,14 @@
 describe King do
-  context 'on e6' do
+  context 'white' do
     before :each do
       @board = Board.new
-      @king = King.new(@board[:e6], :white)
+      @king = King.new(@board[:a8], :white)
     end
-    describe 'controls the adjacent square' do
-      it 'e7' do
-        expect(@king.controls?(@board[:e7])).to be true
-      end
-      it 'd5' do
-        expect(@king.controls?(@board[:d5])).to be true
-      end
+    it 'is white' do
+      expect(@king).to be_white
+    end
+    it 'is not black' do
+      expect(@king).not_to be_black
     end
   end
 end

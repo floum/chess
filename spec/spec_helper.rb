@@ -11,3 +11,4 @@ end
 require 'chess'
 
 include Chess
+include Chess::Conversions

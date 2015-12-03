@@ -1,16 +1,19 @@
-describe Rook do
-  before :each do
-    @board = Board.new
-    @rook = Rook.new(@board[:e2], :white)
-  end
-  it 'controls rows' do
-    expect(@rook.controls?(@board[:h2])).to be true
-  end
-  it 'controls columns' do
-    expect(@rook.controls?(@board[:e6])).to be true
-  end
-  it 'is blocked by the other pieces' do
-    @black_rook = Rook.new(@board[:c2], :black)
-    expect(@rook.controls?(@board[:a2])).not_to be true
+describe 'Rook' do
+  context '{W: Ka1, Ra2 - B: a7, Ra8, Kb7}' do
+    before :each do
+      @board = Board.new
+      King.new(@board[:a1], :white)
+      @white_rook = Rook.new(@board[:a2], :white)
+
+      King.new(@board[:b7], :black)
+      Pawn.new(@board[:a7], :black)
+      @black_rook = Rook.new(@board[:a8], :black)
+    end
+    it 'Ra2 attacks the a7 pawn' do
+      expect(@white_rook.attacks?(:a7)).to be true
+    end
+    it 'Ra2 does not attack the a8 rook' do
+      expect(@white_rook.attacks?(:a8)).to be false
+    end
   end
 end

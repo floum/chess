@@ -1,7 +1,13 @@
 module Chess
   # the piece class
   class Piece
-    attr_reader :color
+    attr_reader :square, :color
+
+    def initialize(square, color)
+      @square = square
+      @color = color
+      @square.piece = self
+    end
 
     def white?
       @color == :white
@@ -11,22 +17,18 @@ module Chess
       !white?
     end
 
-    def opponent_pieces
-      board.pieces.select { |piece| piece.color != @color }
+    def attacks?(piece)
+      true
     end
 
-    def between?(square, other_square)
-      @square.between?(square, other_square)
+    private 
+
+    def opposite_pieces
+      white? ? board.black_pieces : board.white_pieces
     end
 
     def board
-      @square.board
-    end
-
-    def initialize(square, color)
-      square.piece = self
-      @square = square
-      @color = color
+      square.board
     end
   end
 end

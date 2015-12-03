@@ -1,28 +1,23 @@
+require 'matrix'
+require 'pry'
+
 module Chess
   # the chessboard class
   class Board
-    attr_accessor :to_move
-    COLUMNS = ('a'..'h').to_a
-    ROWS = (1..8).to_a
-
-    def self.square_coordinates
-      COLUMNS.product(ROWS).map(&:join).map(&:to_sym)
-    end
 
     def initialize
-      @squares = {}
-      Board.square_coordinates.each do |coordinates|
-        @squares[coordinates] = Square.new(self, coordinates)
+      @squares = Matrix.build(8) do |column, row|
+        coordinates = Coordinates([column, row])
+        Square.new(self, coordinates)
       end
-      @to_move = :white
     end
 
-    def [](coordinates)
-      @squares[coordinates]
+    def move(move)
     end
 
-    def pieces
-      @squares.values.select(&:occupied?).map(&:piece)
+    def[](coordinates)
+      coordinates = Coordinates(coordinates)
+      squares[coordinates.column, coordinates.row]
     end
 
     def white_pieces
@@ -33,10 +28,16 @@ module Chess
       pieces.select(&:black?)
     end
 
-    def to_json
-      Board.square_coordinates.each_with_object({}) do |coordinates, result|
-        result[coordinates] = self[coordinates] if self[coordinates].occupied?
-      end.to_json
+    def checkmated_king
+      NullPiece.new
+    end
+
+    private
+
+    attr_reader :squares
+
+    def pieces
+      @squares.map(&:piece)
     end
   end
 end

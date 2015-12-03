@@ -1,16 +1,33 @@
 module Chess
   # the chess game class
   class Game
+
+    def initialize
+      Pawn.new(board[:e2], :white)
+    end
+
+    def move(move)
+      move = Move(move)
+      board.move(move)
+      self
+    end
+
+    def winner
+      checkmated_king.opposite_color
+    end
+
+    private
+
     def board
       @board ||= Board.new
     end
 
-    def moves
-      @moves ||= []
+    def checkmated_king
+      board.checkmated_king
     end
 
-    def sides
-      [:white, :black]
+    def pieces
+      board.pieces
     end
   end
 end
