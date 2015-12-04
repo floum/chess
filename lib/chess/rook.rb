@@ -6,7 +6,7 @@ module Chess
 
       path = path_to(coordinates)
 
-      path.rook_path? && !path.obstructed?
+      path.rook_path? && !path.obstructed?(board)
     end
 
     def coordinates
@@ -16,7 +16,7 @@ module Chess
     private
 
     def path_to(coordinates)
-      Path.new(board, self.coordinates, coordinates)
+      Path.new(self.coordinates, coordinates)
     end
   end
 end

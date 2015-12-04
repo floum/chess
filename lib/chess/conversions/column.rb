@@ -5,7 +5,7 @@ module Chess
     def Column(column)
       case column
       when Column
-        self
+        column
       when String
         Column.new(column)
       when Symbol

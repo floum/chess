@@ -2,23 +2,25 @@ module Chess
   module Conversions
     module_function
 
-    def Square(square)
-      case square
-      when Square
-        square
+    def Coordinates(coordinates)
+      case coordinates
+      when Coordinates
+        coordinates
       when Symbol
-        square = square.to_s
-        Square(square)
+        coordinates = coordinates.to_s
+        Coordinates(coordinates)
       when String
-        column = Column(square.split('')[0])
-        row = Row(square.split('')[1])
-        Square.new(column, row)
+        column = Column(coordinates.split('')[0])
+        row = Row(coordinates.split('')[1])
+        Coordinates.new(column, row)
       when Array
-        column = Column(square[0])
-        row = Row(square[1])
-        Square.new(column, row)
+        column = Column(coordinates[0])
+        row = Row(coordinates[1])
+        Coordinates.new(column, row)
+      when Piece
+        coordinates.coordinates
       else
-        raise TypeError, "cannot convert #{square.inspect} to square"
+        raise TypeError, "cannot convert #{coordinates.inspect} to coordinates"
       end
     end
   end

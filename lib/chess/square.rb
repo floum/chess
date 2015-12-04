@@ -3,9 +3,9 @@ module Chess
   class Square
     attr_reader :board, :coordinates
 
-    def initialize(column, row)
-      @column = column
-      @row = row
+    def initialize(board, coordinates)
+      @coordinates = Coordinates(coordinates)
+      @board = board
     end
 
     def row
@@ -17,7 +17,7 @@ module Chess
     end
 
     def black?
-      coordinates.black?
+      (row.to_int + column.to_int).even?
     end
 
     def piece_color
@@ -30,6 +30,10 @@ module Chess
 
     def piece=(piece)
       @piece = piece
+    end
+
+    def occupied?
+      ActualPiece(piece)
     end
   end
 end

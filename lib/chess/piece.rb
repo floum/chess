@@ -9,6 +9,10 @@ module Chess
       @square.piece = self
     end
 
+    def coordinates
+      square.coordinates
+    end
+
     def white?
       @color == :white
     end

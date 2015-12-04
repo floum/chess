@@ -7,12 +7,12 @@ module Chess
       @row = row
     end
 
-    def black?
-      (column.to_int + row.to_int).even?
+    def ==(coordinates)
+      column == coordinates.column && row == coordinates.row
     end
 
-    def white?
-      !black?
+    def to_s
+      "#{column.to_s}#{row.to_s}"
     end
   end
 end
