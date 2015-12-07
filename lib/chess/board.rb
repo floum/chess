@@ -10,9 +10,16 @@ module Chess
         coordinates = Coordinates([column, row])
         Square.new(self, coordinates)
       end
+      @side_to_move = :white
+    end
+
+    def side_to_move
+      @side_to_move
     end
 
     def move(move)
+      move = Move(self, move)
+      self
     end
 
     def[](coordinates)
@@ -31,8 +38,6 @@ module Chess
     def checkmated_king
       NullPiece.new
     end
-
-    private
 
     attr_reader :squares
 

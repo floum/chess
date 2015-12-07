@@ -9,9 +9,7 @@ module Chess
     end
 
     def <=>(column)
-      return 0 if name = column.name
-      return -1 if name < column.name
-      1
+      name <=> column.name
     end
 
     def to_int

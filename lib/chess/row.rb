@@ -9,9 +9,7 @@ module Chess
     end
 
     def <=>(row)
-      return 0 if name == row.name
-      return -1 if name < row.name
-      1
+      name <=> row.name
     end
 
     def to_int

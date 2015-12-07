@@ -18,7 +18,7 @@ module Chess
     end
 
     def rook_path?
-      source != target
+      source.column == target.column || source.row == target.row
     end
 
     def coordinates

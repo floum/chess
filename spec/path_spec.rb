@@ -3,7 +3,15 @@ describe Path do
     @board = Board.new
   end
   context 'on an empty board' do
-    describe 'a1 - a8' do
+    describe 'b2-g7' do
+      before :each do
+        @path = Path.new(:b2, :g7)
+      end
+      it 'is not a rook path' do
+        expect(@path).not_to be_rook_path
+      end
+    end
+    describe 'a1-a8' do
       before :each do
         @path = Path.new(:a1, :a8)
       end

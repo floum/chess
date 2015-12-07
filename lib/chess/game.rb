@@ -7,7 +7,6 @@ module Chess
     end
 
     def move(move)
-      move = Move(move)
       board.move(move)
       self
     end

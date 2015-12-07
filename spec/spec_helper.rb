@@ -12,3 +12,4 @@ require 'chess'
 
 include Chess
 include Chess::Conversions
+include Chess::Parsers

@@ -3,6 +3,9 @@ module Chess
     def initialize
     end
 
+    def opposite_color
+    end
+
     def black?
       false
     end
