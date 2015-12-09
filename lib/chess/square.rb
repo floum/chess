@@ -30,6 +30,7 @@ module Chess
 
     def piece=(piece)
       @piece = piece
+      @piece.square = self
     end
 
     def occupied?

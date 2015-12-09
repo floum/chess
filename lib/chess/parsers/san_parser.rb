@@ -1,15 +1,17 @@
 module Chess
+  # Chess Parsers Namespace
   module Parsers
-    class SAN
+    # SAN (algebraic notation) Parser
+    class SANParser
       def self.parse(board, move)
         piece_type = find_piece_type(move)
         piece_color = board.side_to_move
         target = parse_target(move)
         candidate_pieces = board.pieces.select { |piece| piece.color == piece_color && piece.class == piece_type }
-        pieces = candidate_pieces.select { |piece| piece.move(target).legal? }
+        pieces = candidate_pieces.select { |piece| piece.legal_move?(target) }
         raise AmbiguousMoveError if pieces.size > 1
         raise IllegalMoveError if pieces.size == 0
-        Move.new(board, Path.new(pieces.first.coordinates, target))
+        Move.new(pieces.first.coordinates, target)
       end
 
       def self.find_piece_type(move)

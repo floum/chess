@@ -1,6 +1,7 @@
 describe Game do
   describe 'Lions Mate' do
     it 'is a win for black' do
+      skip
       @game = Game.new
 
       @game.move('f3')
@@ -14,6 +15,7 @@ describe Game do
 
   describe 'Scholars Mate' do
     it 'is a win for white' do
+      skip
       @game = Game.new
 
       @game.move('e4')

@@ -16,7 +16,7 @@ require 'chess/path'
 require 'chess/conversions/move'
 require 'chess/move'
 
-require 'chess/parsers/san'
+require 'chess/parsers/san_parser'
 
 require 'chess/piece'
 require 'chess/null_piece'

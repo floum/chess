@@ -1,4 +1,5 @@
 module Chess
+  # Null Object for Piece
   class NullPiece < Piece
     def initialize
     end

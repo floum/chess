@@ -13,7 +13,24 @@ module Chess
       square.coordinates
     end
 
+    def legal_move?(coordinates)
+      coordinates = Coordinates(coordinates)
+      
+      true
+    end
+
+    def move(coordinates)
+      coordinates = Coordinates(coordinates)
+
+      clear_square
+      board[coordinates].piece = self
+    end
+
     private
+
+    def clear_square
+      board[coordinates].piece = nil
+    end
 
     def path_to(coordinates)
       Path.new(self.coordinates, coordinates)

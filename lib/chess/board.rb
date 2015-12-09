@@ -18,7 +18,8 @@ module Chess
     end
 
     def move(move)
-      move = Move(self, move)
+      move = SANParser.parse(self, move)
+      move.play(self) if move.legal?(self)
       self
     end
 

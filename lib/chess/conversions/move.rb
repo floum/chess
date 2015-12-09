@@ -5,7 +5,7 @@ module Chess
     def Move(board, move)
       case move
       when String
-        SAN.parse(board, move)
+        SANParser.parse(board, move)
       when Move
         move
       else

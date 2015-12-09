@@ -1,4 +1,5 @@
 module Chess
+  # Chessboard Column Class
   class Column
     include Comparable
 
@@ -8,8 +9,8 @@ module Chess
       @name = name
     end
 
-    def <=>(column)
-      name <=> column.name
+    def <=>(other)
+      name <=> other.name
     end
 
     def to_int
